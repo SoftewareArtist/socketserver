@@ -20,23 +20,6 @@ io.on('connection', (socket) => {
         console.log("ROOM", roomid);
         socket.join(roomid)
         socket.emit('loginSuccess');
-        // if (users[roomid].indexOf(nickname) > -1) {
-        //     socket.emit('nickExisted');
-        //     socket.nickname = nickname;
-        //     socket.roomid = roomid;
-        //     socket.usertype = usertype;
-        // } else {
-        //     //socket.userIndex = users.length;
-        //     socket.nickname = nickname;
-        //     socket.roomid = roomid;
-        //     socket.usertype = usertype;
-        //     socket.join(roomid)
-        //     users[roomid].push(nickname);
-        //     socket.emit('loginSuccess');
-
-        //     socket.emit('system', socket.nickname, users[roomid].length, 'login', roomid);
-        //     socket.broadcast.to(roomid).emit('system', socket.nickname, users[roomid].length, 'login', roomid);
-        // };
     });
 
     //user leaves
