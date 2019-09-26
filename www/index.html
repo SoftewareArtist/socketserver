@@ -1,0 +1,25 @@
+<script src="http://localhost:8081/socket.io/socket.io.js"></script>
+<script>
+    class MySocket{
+        constructor(groupid, address){
+            this.groupid = groupid;
+            this.address = address
+            this.init();
+        }
+        init(){
+            var groupid = this.groupid;
+            this.socket = io.connect();
+            this.socket = io.connect(this.address);
+            var that = this;
+            this.socket.on('connect', function() {
+                that.socket.emit('login', groupid);
+            });
+            this.socket.on("tip-notification", (data)=>{
+                console.log(data);
+            });
+        }
+    }
+</script>
+<script>
+    var socket = new MySocket("1234", "http://localhost:8081");
+</script>
